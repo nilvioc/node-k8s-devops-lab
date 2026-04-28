@@ -6,7 +6,7 @@ on:
       - main
 
 jobs:
-  build-test-publish:
+  build-test-publish-deploy:
     runs-on: ubuntu-latest
 
     steps:
@@ -38,3 +38,16 @@ jobs:
           tags: |
             nilvioc/node-k8s-devops-lab:latest
             nilvioc/node-k8s-devops-lab:${{ github.sha }}
+
+      - name: Configurar kubeconfig
+        run: |
+          mkdir -p ~/.kube
+          echo "${{ secrets.KUBE_CONFIG }}" > ~/.kube/config
+
+      - name: Deploy Kubernetes
+        run: |
+          kubectl set image deployment/node-lab \
+          node-k8s-devops-lab=nilvioc/node-k8s-devops-lab:latest \
+          -n devops-lab
+
+          kubectl rollout status deployment/node-lab -n devops-lab
