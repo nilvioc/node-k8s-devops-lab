@@ -4,7 +4,7 @@ const app = express();
 const port = 3000;
 
 app.get("/", (req, res) => {
-  res.send("Projeto DevOps no ar!");
+  res.send("Projeto DevOps v2 no ar!");
 });
 
 app.get("/health", (req, res) => {
@@ -14,7 +14,7 @@ app.get("/health", (req, res) => {
 app.get("/info", (req, res) => {
   res.json({
     app: "node-k8s-devops-lab",
-    version: "1.0.0"
+    version: "2.0.0"
   });
 });
 
