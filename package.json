@@ -1,0 +1,21 @@
+{
+  "name": "node-k8s-devops-lab",
+  "version": "1.0.0",
+  "description": "Projeto DevOps com Node.js, Docker, Kubernetes e CI/CD",
+  "main": "src/app.js",
+  "scripts": {
+    "start": "node src/app.js",
+    "test": "echo \"No tests yet\""
+  },
+  "keywords": [
+    "nodejs",
+    "docker",
+    "kubernetes",
+    "devops"
+  ],
+  "author": "Nilvio",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^5.2.1"
+  }
+}
