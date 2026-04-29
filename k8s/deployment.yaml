@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: node-lab
+  namespace: devops-lab
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: node-lab
+  template:
+    metadata:
+      labels:
+        app: node-lab
+    spec:
+      containers:
+      - name: node-k8s-devops-lab
+        image: nilvioc/node-k8s-devops-lab:latest
+        ports:
+        - containerPort: 3000
