@@ -18,3 +18,29 @@ spec:
         image: nilvioc/node-k8s-devops-lab:latest
         ports:
         - containerPort: 3000
+
+        env:
+        - name: NODE_ENV
+          value: "production"
+
+        resources:
+          requests:
+            cpu: "100m"
+            memory: "128Mi"
+          limits:
+            cpu: "300m"
+            memory: "256Mi"
+
+        livenessProbe:
+          httpGet:
+            path: /health
+            port: 3000
+          initialDelaySeconds: 10
+          periodSeconds: 10
+
+        readinessProbe:
+          httpGet:
+            path: /health
+            port: 3000
+          initialDelaySeconds: 5
+          periodSeconds: 5
