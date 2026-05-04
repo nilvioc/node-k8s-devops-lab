@@ -31,16 +31,20 @@ spec:
             cpu: "300m"
             memory: "256Mi"
 
-        livenessProbe:
-          httpGet:
-            path: /health
-            port: 3000
-          initialDelaySeconds: 10
-          periodSeconds: 10
+         livenessProbe:
+           httpGet:
+             path: /health
+             port: 3000
+           initialDelaySeconds: 20
+           timeoutSeconds: 5
+           periodSeconds: 10
+           failureThreshold: 3
 
-        readinessProbe:
-          httpGet:
-            path: /health
-            port: 3000
-          initialDelaySeconds: 5
-          periodSeconds: 5
+          readinessProbe:
+            httpGet:
+              path: /health
+              port: 3000
+            initialDelaySeconds: 10
+            timeoutSeconds: 5
+            periodSeconds: 5
+            failureThreshold: 3
