@@ -1,0 +1,21 @@
+replicaCount: 3
+
+image:
+  repository: nilvioc/node-k8s-devops-lab
+  tag: latest
+  pullPolicy: Always
+
+service:
+  type: ClusterIP
+  port: 3000
+
+resources:
+  limits:
+    cpu: 300m
+    memory: 256Mi
+  requests:
+    cpu: 100m
+    memory: 128Mi
+
+autoscaling:
+  enabled: false
