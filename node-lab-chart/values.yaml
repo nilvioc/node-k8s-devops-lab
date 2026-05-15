@@ -19,3 +19,13 @@ resources:
 
 autoscaling:
   enabled: false
+  
+ingress:
+  enabled: true
+  className: "nginx"
+  annotations: {}
+  hosts:
+    - host: nodelab.local
+      paths:
+        - path: /
+          pathType: Prefix
