@@ -24,6 +24,25 @@ spec:
           ports:
             - containerPort: 3000
 
+          env:
+            - name: NODE_ENV
+              valueFrom:
+                configMapKeyRef:
+                  name: node-lab-config
+                  key: NODE_ENV
+
+            - name: APP_VERSION
+              valueFrom:
+                configMapKeyRef:
+                  name: node-lab-config
+                  key: APP_VERSION
+
+            - name: JWT_SECRET
+              valueFrom:
+                secretKeyRef:
+                  name: node-lab-secret
+                  key: JWT_SECRET
+
           resources:
 {{ toYaml .Values.resources | indent 12 }}
 
