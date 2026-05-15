@@ -25,7 +25,7 @@ ingress:
   className: "nginx"
   annotations: {}
   hosts:
-    - host: nodelab.local
+    - host: node-lab.local
       paths:
         - path: /
           pathType: Prefix
